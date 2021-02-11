@@ -1,0 +1,14 @@
+def softmax(x):
+    """Softmax decision policy:
+        - Always choose bandit with highest probability -
+
+    Args:
+        x (list): Rewards for each bandit
+
+    Returns:
+        [int]: Index if selected bandit
+    """    
+    e_x = np.exp(x - np.max(x))
+    ret = (e_x / e_x.sum())
+    print(ret)
+    return np.random.choice(range(len(x)), 1, p=ret)
